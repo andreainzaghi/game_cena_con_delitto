@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Indovinelli per arrivare alla cena</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #f2f2f2;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-size: 2rem;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        background: rgb(165, 255, 133);
+        background: linear-gradient(
+          162deg,
+          rgba(165, 255, 133, 1) 0%,
+          rgba(158, 198, 255, 1) 100%
+        );
+        padding: 20px;
+        border-radius: 5px;
+      }
+      .question {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #0099ff;
+      }
+      .answers {
+        margin-bottom: 50px;
+      }
+      .answer {
+        margin-bottom: 10px;
+        color: #000;
+      }
+      .btn {
+        background-color: #0099ff;
+        color: #fff;
+        padding: 1rem;
+        border-radius: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      input[type="radio"] {
+        width: 60px;
+        height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="questions">
+        <div class="question" id="question1">
+          Qual è il colore del cavallo bianco di Napoleone?
+        </div>
+        <div class="answers">
+          <div class="answer">
+            <input type="radio" name="answer1" value="A" /> Bianco<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer1" value="B" /> Nero<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer1" value="C" /> Grigio<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer1" value="D" /> Marrone<br />
+          </div>
+        </div>
+        <a href="#" class="btn" id="btn1">Invia risposta</a>
+      </div>
+      <div class="questions" style="display: none">
+        <div class="question" id="question2">
+          Qual è il nome del primo satellite artificiale lanciato nello spazio?
+        </div>
+        <div class="answers">
+          <div class="answer">
+            <input type="radio" name="answer2" value="A" /> Sputnik 1<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer2" value="B" /> Apollo 11<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer2" value="C" /> Voyager 1<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer2" value="D" /> Hubble<br />
+          </div>
+        </div>
+        <a href="#" class="btn" id="btn2">Invia risposta</a>
+      </div>
+      <div class="questions" style="display: none">
+        <div class="question" id="question3">
+          Qual è il nome del primo computer programmabile?
+        </div>
+        <div class="answers">
+          <div class="answer">
+            <input type="radio" name="answer3" value="A" /> ENIAC<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer3" value="B" /> Apple II<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer3" value="C" /> IBM PC<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer3" value="D" /> Cray-1<br />
+          </div>
+        </div>
+        <a href="#" class="btn" id="btn3">Invia risposta</a>
+      </div>
+      <div class="questions" style="display: none">
+        <div class="question" id="question4">
+          Qual è il nome del primo motore a combustione interna?
+        </div>
+        <div class="answers">
+          <div class="answer">
+            <input type="radio" name="answer4" value="A" /> Otto<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer4" value="B" /> Diesel<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer4" value="C" /> Wankel<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer4" value="D" /> Tesla<br />
+          </div>
+        </div>
+        <a href="#" class="btn" id="btn4">Invia risposta</a>
+      </div>
+      <div class="questions" style="display: none">
+        <div class="question" id="question5">
+          Qual è il nome del primo satellite artificiale lanciato nello spazio?
+        </div>
+        <div class="answers">
+          <div class="answer">
+            <input type="radio" name="answer5" value="A" /> Sputnik 1<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer5" value="B" /> Apollo 11<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer5" value="C" /> Voyager 1<br />
+          </div>
+          <div class="answer">
+            <input type="radio" name="answer5" value="D" /> Hubble<br />
+          </div>
+        </div>
+        <a href="#" class="btn" id="btn5">Invia risposta</a>
+      </div>
+    </div>
+    <script>
+      // Variabili
+      var questions = document.querySelectorAll(".questions");
+      var btns = document.querySelectorAll(".btn");
+      var currentQuestion = 0;
+      var score = 0;
+      // Funzioni
+      function showQuestion(questionIndex) {
+        questions[questionIndex].style.display = "block";
+      }
+      function hideQuestion(questionIndex) {
+        questions[questionIndex].style.display = "none";
+      }
+      function showNextQuestion() {
+        hideQuestion(currentQuestion);
+        currentQuestion++;
+        showQuestion(currentQuestion);
+      }
+      // Eventi
+      btns[0].addEventListener("click", function () {
+        var answer = document.querySelector(
+          'input[name="answer1"]:checked'
+        ).value;
+        if (answer === "A") {
+          score++;
+        }
+        showNextQuestion();
+      });
+      btns[1].addEventListener("click", function () {
+        var answer = document.querySelector(
+          'input[name="answer2"]:checked'
+        ).value;
+        if (answer === "A") {
+          score++;
+        }
+        showNextQuestion();
+      });
+      btns[2].addEventListener("click", function () {
+        var answer = document.querySelector(
+          'input[name="answer3"]:checked'
+        ).value;
+        if (answer === "A") {
+          score++;
+        }
+        showNextQuestion();
+      });
+      btns[3].addEventListener("click", function () {
+        var answer = document.querySelector(
+          'input[name="answer4"]:checked'
+        ).value;
+        if (answer === "A") {
+          score++;
+        }
+        showNextQuestion();
+      });
+      btns[4].addEventListener("click", function () {
+        var answer = document.querySelector(
+          'input[name="answer5"]:checked'
+        ).value;
+        if (answer === "A") {
+          score++;
+        }
+        alert(
+          "Hai completato il gioco! Il tuo punteggio è " + score + " su 5."
+        );
+      });
+      // Inizializzazione
+      showQuestion(currentQuestion);
+    </script>
+  </body>
+</html>
