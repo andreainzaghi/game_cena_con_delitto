@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+    rel="stylesheet"
+  />
+
   <head>
     <style>
       * {
@@ -10,7 +17,7 @@
 
       body {
         background-color: #fafafa;
-        font-family: "Open Sans", sans-serif;
+        font-family: "Poppins", sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -392,9 +399,20 @@
   <body>
     <!-- First Question -->
     <div class="question" id="question1">
-      <p>Qual è il colore del cavallo bianco di Napoleone?</p>
-      <input type="text" id="answer1" placeholder="inserisci il codice" />
-      <button id="submit1">Invia</button>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <p>Qual è il colore del cavallo bianco di Napoleone?</p>
+        <input type="text" id="answer1" placeholder="inserisci il codice" />
+        <button id="submit1">Invia</button>
+      </div>
     </div>
 
     <!-- Second Question -->
