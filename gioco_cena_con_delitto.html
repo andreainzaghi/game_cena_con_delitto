@@ -655,6 +655,9 @@
           flex-direction: column;
         "
       >
+        <audio autoplay>
+          <source src="./1.mp4" type="audio/mp4" />
+        </audio>
         <button id="showMapButton">Show Map</button>
         <div id="iframeContainer" style="width: 100%; height: 100vh">
           <iframe
@@ -697,7 +700,7 @@
       question1.style.display = "block";
 
       submit1.addEventListener("click", function () {
-        if (answer1.value.toLowerCase() === "1") {
+        if (answer1.value.toLowerCase() === "viennetta") {
           question1.style.display = "none";
           question2.style.display = "block";
         } else {
@@ -707,7 +710,7 @@
       // 44.497875461447904
 
       submit2.addEventListener("click", function () {
-        if (answer2.value === "2") {
+        if (answer2.value === "42") {
           question2.style.display = "none";
           question3.style.display = "block";
         } else {
